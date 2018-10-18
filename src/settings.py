@@ -14,6 +14,8 @@ import os
 
 from django.contrib.messages import constants as messages
 
+from decouple import config as config_decouple
+
 import dj_database_url as db
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -86,8 +88,12 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config_decouple('DB_NAME'),
+        'USER': config_decouple('DB_USER'),
+        'PASSWORD': config_decouple('DB_PASSWORD'),
+        'HOST': config_decouple('DB_HOST'),
+        'PORT': '',
     }
 }
 
