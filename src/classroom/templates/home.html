@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Seja bem-vindo ao Carrasco/Mamata 2! <span class="icon-emo-happy"></span></h2>
+  <p class="lead">
+    Se voce ja possui uma conta, clique para efetuar <a href="{% url 'login' %}">log in</a>. Se voce eh novo no sistema, comece criando uma nova como como: <a href="{% url 'student_signup' %}">estudante</a> ou <a href="{% url 'teacher_signup' %}">professor</a>.
+  </p>
+  <hr>
+
+{% endblock %}
